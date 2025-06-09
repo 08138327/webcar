@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:uiblond/inventory/inventory.dart';
 import 'package:visibility_detector/visibility_detector.dart'
     show VisibilityDetector;
 
@@ -33,10 +34,25 @@ class _MainPageState extends State<MainPage>
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         actions: [
-          TextButton(onPressed: () {}, child: const Text("Home")),
-          TextButton(onPressed: () {}, child: const Text("Inventory")),
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MainPage()),
+              );
+            },
+            child: const Text("Home"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Inventorypage()),
+              );
+            },
+            child: const Text("Inventory"),
+          ),
           TextButton(onPressed: () {}, child: const Text("Contact")),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
         ],
       ),
       body: SingleChildScrollView(
@@ -60,13 +76,11 @@ class _MainPageState extends State<MainPage>
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Expanded(
-                        child: Text(
-                          "Explore our wide range\nof quality vehicles. We\noffer a variety of makes\nand models to suit your\nneeds.",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                      Text(
+                        "Explore our wide range\nof quality vehicles. We\noffer a variety of makes\nand models to suit your\nneeds.",
+                        style: TextStyle(fontSize: 16),
                       ),
-                      const SizedBox(width: 30),
+                      const SizedBox(width: 90),
                       SizedBox(
                         height: 400,
                         width: 620,
@@ -78,6 +92,11 @@ class _MainPageState extends State<MainPage>
                               (context, error, stackTrace) =>
                                   const Icon(Icons.error),
                         ),
+                      ),
+                      SizedBox(width: 50),
+                      Text(
+                        "Explore our wide range\nof quality vehicles. We\noffer a variety of makes\nand models to suit your\nneeds.",
+                        style: TextStyle(fontSize: 16),
                       ),
                     ],
                   ),
@@ -292,6 +311,21 @@ class _MainPageState extends State<MainPage>
                         ),
                       ],
                     ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 30),
+            Container(
+              height: 400,
+              width: double.infinity,
+              decoration: BoxDecoration(color: Colors.grey[100]),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 300),
+                    child: Text("this page sel car and other car assc"),
                   ),
                 ],
               ),
