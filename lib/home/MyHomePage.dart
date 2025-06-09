@@ -229,88 +229,86 @@ class _MainPageState extends State<MainPage>
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    child: Stack(
-                      children: [
-                        Image.network(
-                          // Background image for BMW section
-                          "https://i.ibb.co/jZbtb0Wz/chuttersnap-gts-Eh4g1lk-unsplash.jpg",
-                          height: 400,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder:
-                              (context, error, stackTrace) =>
-                                  const Icon(Icons.error),
-                        ),
-                        Positioned.fill(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              VisibilityDetector(
-                                key: _textKey,
-                                onVisibilityChanged: (visibilityInfo) {
-                                  if (visibilityInfo.visibleFraction > 0.5) {
-                                    // Restart animation when visible
-                                    _animationController?.forward(from: 0);
-                                  } else {
-                                    // Pause animation when not visible
-                                    _animationController?.stop();
-                                  }
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 150),
-                                  child: SizedBox(
-                                    height: 200,
-                                    width: 300,
-                                    child: Text(
-                                          "A speedometer tracks every second,\n every mile,"
-                                          "urging you to chase your dreams with relentless drive."
-                                          "When buying a car,\n choose one that matches your"
-                                          "pace—fast enough to fuel your ambition,\n balanced"
-                                          "to respect your limits.\n Let each tick of the needle"
-                                          "inspire you to make every moment count on the road ahead.",
+                  Stack(
+                    children: [
+                      Image.network(
+                        // Background image for BMW section
+                        "https://i.ibb.co/jZbtb0Wz/chuttersnap-gts-Eh4g1lk-unsplash.jpg",
+                        height: 400,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder:
+                            (context, error, stackTrace) =>
+                                const Icon(Icons.error),
+                      ),
+                      Positioned.fill(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            VisibilityDetector(
+                              key: _textKey,
+                              onVisibilityChanged: (visibilityInfo) {
+                                if (visibilityInfo.visibleFraction > 0.5) {
+                                  // Restart animation when visible
+                                  _animationController?.forward(from: 0);
+                                } else {
+                                  // Pause animation when not visible
+                                  _animationController?.stop();
+                                }
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 150),
+                                child: SizedBox(
+                                  height: 200,
+                                  width: 300,
+                                  child: Text(
+                                        "A speedometer tracks every second,\n every mile,"
+                                        "urging you to chase your dreams with relentless drive."
+                                        "When buying a car,\n choose one that matches your"
+                                        "pace—fast enough to fuel your ambition,\n balanced"
+                                        "to respect your limits.\n Let each tick of the needle"
+                                        "inspire you to make every moment count on the road ahead.",
 
-                                          style: const TextStyle(
-                                            color: Color.fromARGB(
-                                              255,
-                                              146,
-                                              151,
-                                              146,
-                                            ),
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            shadows: [
-                                              Shadow(
-                                                color: Colors.black54,
-                                                offset: Offset(2, 2),
-                                                blurRadius: 4,
-                                              ),
-                                            ],
+                                        style: const TextStyle(
+                                          color: Color.fromARGB(
+                                            255,
+                                            146,
+                                            151,
+                                            146,
                                           ),
-                                          textAlign: TextAlign.center,
-                                        )
-                                        .animate(
-                                          onInit: (controller) {
-                                            _animationController = controller;
-                                            controller.forward();
-                                          },
-                                          onPlay:
-                                              (controller) => controller.repeat(
-                                                reverse: false,
-                                              ),
-                                        )
-                                        .fade(
-                                          delay: 2000.milliseconds,
-                                          duration: 4000.milliseconds,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              color: Colors.black54,
+                                              offset: Offset(2, 2),
+                                              blurRadius: 4,
+                                            ),
+                                          ],
                                         ),
-                                  ),
+                                        textAlign: TextAlign.center,
+                                      )
+                                      .animate(
+                                        onInit: (controller) {
+                                          _animationController = controller;
+                                          controller.forward();
+                                        },
+                                        onPlay:
+                                            (controller) => controller.repeat(
+                                              reverse: false,
+                                            ),
+                                      )
+                                      .fade(
+                                        delay: 2000.milliseconds,
+                                        duration: 4000.milliseconds,
+                                      ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),
